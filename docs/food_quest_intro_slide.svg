@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Food Quest Introduction Slide</title>
+  <desc id="desc">Introduction image for Food Quest showing team P23, team members, IDs, and project technologies.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fafaf7; }
+      .green { fill: #1f7a4d; }
+      .ink { fill: #17231d; }
+      .muted { fill: #52645b; }
+      .pale { fill: #e5f3eb; stroke: #b8d6c5; stroke-width: 2; }
+      .card { fill: #ffffff; stroke: #dae2dc; stroke-width: 3; }
+      .white { fill: #ffffff; }
+      text { font-family: Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1920" height="1080" />
+  <rect class="green" width="1920" height="190" />
+
+  <text x="120" y="118" class="white" font-size="72" font-weight="700">Food Quest</text>
+  <text x="120" y="160" fill="#e7f7ee" font-size="32">COMP3074 UI Prototype</text>
+
+  <rect x="120" y="260" width="1680" height="630" rx="36" class="card" />
+
+  <text x="190" y="385" class="green" font-size="46" font-weight="700">Team P23</text>
+  <text x="220" y="470" class="ink" font-size="40" font-weight="700">Almas Sultana</text>
+  <text x="760" y="470" class="muted" font-size="40">101564373</text>
+  <text x="220" y="558" class="ink" font-size="40" font-weight="700">Arcadio Vega</text>
+  <text x="760" y="558" class="muted" font-size="40">101569135</text>
+  <text x="220" y="646" class="ink" font-size="40" font-weight="700">Juela Topi</text>
+  <text x="760" y="646" class="muted" font-size="40">101087887</text>
+
+  <text x="190" y="762" class="green" font-size="42" font-weight="700">Technologies</text>
+  <g font-size="29" font-weight="700">
+    <rect x="202" y="783" width="120" height="56" rx="22" class="pale" />
+    <text x="220" y="820" class="ink">Kotlin</text>
+    <rect x="374" y="783" width="240" height="56" rx="22" class="pale" />
+    <text x="392" y="820" class="ink">Android Studio</text>
+    <rect x="666" y="783" width="122" height="56" rx="22" class="pale" />
+    <text x="684" y="820" class="ink">Gradle</text>
+    <rect x="840" y="783" width="184" height="56" rx="22" class="pale" />
+    <text x="858" y="820" class="ink">Android SDK</text>
+    <rect x="1076" y="783" width="96" height="56" rx="22" class="pale" />
+    <text x="1094" y="820" class="ink">XML</text>
+    <rect x="1224" y="783" width="138" height="56" rx="22" class="pale" />
+    <text x="1242" y="820" class="ink">GitHub</text>
+  </g>
+
+  <rect x="1340" y="380" width="360" height="360" rx="32" fill="#e5f3eb" />
+  <circle cx="1520" cy="545" r="90" fill="#f6b945" />
+  <path d="M1430 460 C1485 460 1535 480 1615 640 C1542 625 1482 597 1425 450 Z" fill="#c84b31" opacity="0.9" />
+  <rect x="1402" y="651" width="236" height="44" rx="22" class="green" />
+  <path d="M1520 395 L1550 450 L1610 460 L1567 500 L1578 559 L1520 531 L1462 559 L1473 500 L1430 460 L1490 450 Z" class="ink" />
+</svg>
+
