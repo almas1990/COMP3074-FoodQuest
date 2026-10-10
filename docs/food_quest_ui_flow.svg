@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Food Quest UI Prototype Screen Flow</title>
+  <desc id="desc">A screen flow diagram for the Food Quest Android UI prototype.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fafaf7; }
+      .card { fill: #ffffff; stroke: #d9e2dc; stroke-width: 2; }
+      .head { fill: #1f7a4d; }
+      .ink { fill: #17231d; font-family: Arial, sans-serif; }
+      .muted { fill: #52645b; font-family: Arial, sans-serif; }
+      .white { fill: #ffffff; font-family: Arial, sans-serif; }
+      .arrow { stroke: #1f7a4d; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .chip { fill: #e5f3eb; stroke: #b8d6c5; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1f7a4d" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="760" />
+  <text class="ink" x="60" y="58" font-size="34" font-weight="700">Food Quest UI Prototype</text>
+  <text class="muted" x="60" y="88" font-size="18">Team P23 - COMP3074 Mobile Application Development I</text>
+
+  <g transform="translate(60 135)">
+    <rect class="card" x="0" y="0" width="220" height="150" rx="10" />
+    <rect class="head" x="0" y="0" width="220" height="42" rx="10" />
+    <text class="white" x="16" y="28" font-size="18" font-weight="700">Splash / Home</text>
+    <text class="ink" x="16" y="75" font-size="16">Food Quest logo</text>
+    <text class="muted" x="16" y="102" font-size="14">Purpose and start</text>
+    <text class="muted" x="16" y="126" font-size="14">button</text>
+  </g>
+
+  <g transform="translate(370 135)">
+    <rect class="card" x="0" y="0" width="240" height="185" rx="10" />
+    <rect class="head" x="0" y="0" width="240" height="42" rx="10" />
+    <text class="white" x="16" y="28" font-size="18" font-weight="700">Quest List</text>
+    <rect class="chip" x="16" y="58" width="208" height="28" rx="14" />
+    <text class="muted" x="28" y="78" font-size="13">Search quests...</text>
+    <rect class="chip" x="16" y="100" width="62" height="24" rx="12" />
+    <text class="ink" x="28" y="117" font-size="12">Budget</text>
+    <rect class="chip" x="88" y="100" width="64" height="24" rx="12" />
+    <text class="ink" x="99" y="117" font-size="12">Dessert</text>
+    <text class="ink" x="16" y="150" font-size="15" font-weight="700">Taco Trail - 50 pts</text>
+    <text class="muted" x="16" y="174" font-size="13">Open quest detail</text>
+  </g>
+
+  <g transform="translate(720 135)">
+    <rect class="card" x="0" y="0" width="250" height="210" rx="10" />
+    <rect class="head" x="0" y="0" width="250" height="42" rx="10" />
+    <text class="white" x="16" y="28" font-size="18" font-weight="700">Quest Detail</text>
+    <text class="ink" x="16" y="72" font-size="17" font-weight="700">Taco Trail</text>
+    <text class="muted" x="16" y="98" font-size="14">Task, tags, rating</text>
+    <text class="muted" x="16" y="122" font-size="14">Address and points</text>
+    <rect class="head" x="16" y="145" width="112" height="34" rx="8" />
+    <text class="white" x="30" y="168" font-size="13">Complete</text>
+    <rect class="chip" x="140" y="145" width="84" height="34" rx="8" />
+    <text class="ink" x="162" y="168" font-size="13">Map</text>
+  </g>
+
+  <g transform="translate(80 465)">
+    <rect class="card" x="0" y="0" width="240" height="175" rx="10" />
+    <rect class="head" x="0" y="0" width="240" height="42" rx="10" />
+    <text class="white" x="16" y="28" font-size="18" font-weight="700">Add / Edit Quest</text>
+    <text class="muted" x="16" y="75" font-size="14">Quest name</text>
+    <text class="muted" x="16" y="101" font-size="14">Food place</text>
+    <text class="muted" x="16" y="127" font-size="14">Task, tags, points</text>
+    <text class="ink" x="16" y="154" font-size="14" font-weight="700">Save creates quest</text>
+  </g>
+
+  <g transform="translate(450 465)">
+    <rect class="card" x="0" y="0" width="240" height="175" rx="10" />
+    <rect class="head" x="0" y="0" width="240" height="42" rx="10" />
+    <text class="white" x="16" y="28" font-size="18" font-weight="700">Map / Directions</text>
+    <rect class="chip" x="22" y="65" width="196" height="74" rx="8" />
+    <text class="ink" x="58" y="106" font-size="15" font-weight="700">Map placeholder</text>
+    <text class="muted" x="22" y="158" font-size="13">Google Maps in next milestone</text>
+  </g>
+
+  <g transform="translate(820 465)">
+    <rect class="card" x="0" y="0" width="240" height="175" rx="10" />
+    <rect class="head" x="0" y="0" width="240" height="42" rx="10" />
+    <text class="white" x="16" y="28" font-size="18" font-weight="700">Achievements</text>
+    <text class="ink" x="16" y="82" font-size="28" font-weight="700">Points</text>
+    <text class="muted" x="16" y="116" font-size="14">Completed quests</text>
+    <text class="muted" x="16" y="142" font-size="14">Badges and progress</text>
+  </g>
+
+  <path class="arrow" d="M280,210 C320,210 330,210 370,210" />
+  <path class="arrow" d="M610,220 C650,220 680,220 720,220" />
+  <path class="arrow" d="M800,345 C720,405 610,420 570,465" />
+  <path class="arrow" d="M835,345 C855,390 900,420 930,465" />
+  <path class="arrow" d="M490,320 C410,385 310,415 220,465" />
+  <path class="arrow" d="M320,550 C365,550 400,550 450,550" />
+</svg>
+
