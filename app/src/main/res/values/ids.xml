@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="complete_quest" type="id" />
+    <item name="search_query" type="id" />
+    <item name="quest_name" type="id" />
+    <item name="quest_place" type="id" />
+    <item name="quest_address" type="id" />
+    <item name="quest_task" type="id" />
+    <item name="quest_tags" type="id" />
+    <item name="quest_points" type="id" />
+    <item name="quest_difficulty" type="id" />
+    <item name="member_name" type="id" />
+    <item name="member_student_id" type="id" />
+    <item name="member_email" type="id" />
+    <item name="member_phone" type="id" />
+    <item name="map_container" type="id" />
+    <item name="full_map_container" type="id" />
+    <item name="full_map_status" type="id" />
+</resources>

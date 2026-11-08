@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Food Quest</string>
+    <string name="quests">Quests</string>
+    <string name="points">Points</string>
+    <string name="team">Team</string>
+    <string name="about">About</string>
+    <string name="back">Back</string>
+    <string name="add_quest">Add quest</string>
+    <string name="search_hint">Search name, cuisine, difficulty or tag</string>
+    <string name="filter_tags">Filter tags</string>
+    <string name="all_tags">All tags</string>
+    <string name="no_quests">No quests yet. Add your first food challenge.</string>
+    <string name="no_matches">No matching quests.</string>
+    <string name="quest_count">%1$d quests</string>
+    <string name="quest_progress">%1$d pts | %2$s | %3$s | %4$d/5</string>
+    <string name="completed">Completed</string>
+    <string name="available">Available</string>
+</resources>

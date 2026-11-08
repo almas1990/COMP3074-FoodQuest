@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="16dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView style="@style/ScreenHeading" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="@string/quests" />
+        <ImageButton android:id="@+id/add_quest" android:layout_width="48dp" android:layout_height="48dp"
+            android:src="@android:drawable/ic_input_add" android:contentDescription="@string/add_quest"
+            android:tooltipText="@string/add_quest" android:background="?android:attr/selectableItemBackgroundBorderless" />
+    </LinearLayout>
+    <EditText android:id="@id/search_query" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:minHeight="48dp" android:singleLine="true"
+        android:inputType="text" android:hint="@string/search_hint" />
+    <Spinner android:id="@+id/tag_filter" android:layout_width="match_parent"
+        android:layout_height="48dp" android:contentDescription="@string/filter_tags" />
+    <TextView android:id="@+id/result_count" style="@style/BodyText" android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView android:id="@+id/empty_quests" style="@style/BodyText" android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/quest_list"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+</LinearLayout>
