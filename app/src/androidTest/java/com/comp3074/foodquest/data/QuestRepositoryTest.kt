@@ -1,5 +1,6 @@
 package com.comp3074.foodquest.data
 
+import android.database.sqlite.SQLiteDatabase
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.After
 import org.junit.Before
@@ -49,5 +50,27 @@ class QuestRepositoryTest {
     @Test(expected = IllegalArgumentException::class)
     fun invalidPointsAreRejected() {
         repository.save(Quest(name = "Lunch", place = "Cafe", address = "Toronto", task = "Eat", tags = emptyList(), points = -1))
+    }
+
+    @Test fun studentIdCorrectionPreservesExistingQuestsAndContacts() {
+        val member = repository.members().first { it.name == "Almas Sultana" }
+        repository.saveMember(member.copy(email = "student@example.com"))
+        val questId = repository.save(Quest(name = "Keep this quest", place = "Cafe", address = "Toronto",
+            task = "Find lunch", tags = listOf("Lunch"), points = 50))
+        repository.close()
+
+        // Version 1 has the same tables, but seeded the incorrect registration ID.
+        SQLiteDatabase.openDatabase(context.getDatabasePath("foodquest-test.db").path,
+            null, SQLiteDatabase.OPEN_READWRITE).use { oldDatabase ->
+            oldDatabase.execSQL("UPDATE members SET studentId = ? WHERE name = ?",
+                arrayOf("101564373", "Almas Sultana"))
+            oldDatabase.version = 1
+        }
+
+        repository = QuestRepository(FoodQuestDatabase.open(context, "foodquest-test.db"))
+        val corrected = repository.members().first { it.name == "Almas Sultana" }
+        assertEquals("101568934", corrected.studentId)
+        assertEquals("student@example.com", corrected.email)
+        assertEquals(questId, repository.quests().single().id)
     }
 }

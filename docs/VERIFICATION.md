@@ -1,5 +1,18 @@
 # Verification
 
+## Student ID correction
+
+Almas Sultana's registered ID was corrected to `101568934` in the README, About
+screen, seeded team record and introduction slides. Database version 2 applies
+a targeted data migration to existing version 1 installations without deleting
+quests or contact information.
+
+The debug build, unit tests and lint passed after the correction. All four
+repository instrumentation tests passed, including the new migration test that
+checks the corrected ID, retained email and retained quest. These tests used
+`foodquest-test.db`; the app was updated with `adb install -r` to retain existing
+application data. Map and UI workflow tests were not rerun for this text/data fix.
+
 ## November 8, 2026 Maps setup verification
 
 The locally saved Maps key was detected without printing its value. The debug

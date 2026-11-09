@@ -5,7 +5,7 @@ discovering food places through quests, ratings and points.
 
 ## Team
 
-- Almas Sultana - 101564373
+- Almas Sultana - 101568934
 - Arcadio Vega - 101569135
 - Juela Topi - 101087887
 
