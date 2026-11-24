@@ -1,5 +1,6 @@
 package com.comp3074.foodquest
 
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
@@ -23,13 +24,15 @@ class QuestWorkflowTest {
         val name = "Workflow test ${System.currentTimeMillis()}"
         val scenario = ActivityScenario.launch(MainActivity::class.java)
         val idle = DatabaseIdleResource()
-        scenario.onActivity { activity ->
-            val model = ViewModelProvider(activity)[QuestViewModel::class.java]
-            model.busy.observe(activity) { idle.busy = it }
-            activity.openRoot(QuestListFragment())
-        }
         IdlingRegistry.getInstance().register(idle)
         try {
+            // Match the foreground lifecycle required by normal UI navigation.
+            scenario.moveToState(Lifecycle.State.RESUMED)
+            scenario.onActivity { activity ->
+                val model = ViewModelProvider(activity)[QuestViewModel::class.java]
+                model.busy.observe(activity) { idle.busy = it }
+                activity.openRoot(QuestListFragment())
+            }
             onView(withId(R.id.add_quest)).perform(click())
             onView(withId(R.id.quest_name)).perform(scrollTo(), replaceText(name), closeSoftKeyboard())
             onView(withId(R.id.quest_place)).perform(scrollTo(), replaceText("Test cafe"), closeSoftKeyboard())
@@ -37,6 +40,7 @@ class QuestWorkflowTest {
             onView(withId(R.id.quest_task)).perform(scrollTo(), replaceText("Find a budget lunch"), closeSoftKeyboard())
             onView(withId(R.id.quest_tags)).perform(scrollTo(), replaceText("Budget, Lunch"), closeSoftKeyboard())
             scenario.recreate()
+            scenario.moveToState(Lifecycle.State.RESUMED)
             scenario.onActivity { activity ->
                 ViewModelProvider(activity)[QuestViewModel::class.java].busy.observe(activity) { idle.busy = it }
             }
