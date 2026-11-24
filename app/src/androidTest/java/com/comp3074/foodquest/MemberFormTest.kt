@@ -1,5 +1,6 @@
 package com.comp3074.foodquest
 
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
@@ -16,15 +17,18 @@ class MemberFormTest {
     @Test fun draftSurvivesRecreationAndInvalidEmailCanBeCorrected() {
         val scenario = ActivityScenario.launch(MainActivity::class.java)
         val idle = MemberIdleResource()
-        scenario.onActivity { activity ->
-            ViewModelProvider(activity)[QuestViewModel::class.java].busy.observe(activity) { idle.busy = it }
-            activity.openRoot(MemberFormFragment())
-        }
         IdlingRegistry.getInstance().register(idle)
         try {
+            // Programmatic navigation needs an active activity with unsaved fragment state.
+            scenario.moveToState(Lifecycle.State.RESUMED)
+            scenario.onActivity { activity ->
+                ViewModelProvider(activity)[QuestViewModel::class.java].busy.observe(activity) { idle.busy = it }
+                activity.openRoot(MemberFormFragment())
+            }
             onView(withId(R.id.member_name)).perform(scrollTo(), replaceText("Draft example"), closeSoftKeyboard())
             onView(withId(R.id.member_email)).perform(scrollTo(), replaceText("not-an-email"), closeSoftKeyboard())
             scenario.recreate()
+            scenario.moveToState(Lifecycle.State.RESUMED)
             scenario.onActivity { activity ->
                 ViewModelProvider(activity)[QuestViewModel::class.java].busy.observe(activity) { idle.busy = it }
             }
@@ -45,12 +49,13 @@ class MemberFormTest {
     @Test fun missingMemberShowsUnavailableState() {
         val scenario = ActivityScenario.launch(MainActivity::class.java)
         val idle = MemberIdleResource()
-        scenario.onActivity { activity ->
-            ViewModelProvider(activity)[QuestViewModel::class.java].busy.observe(activity) { idle.busy = it }
-            activity.openRoot(MemberFormFragment.newInstance(Long.MAX_VALUE))
-        }
         IdlingRegistry.getInstance().register(idle)
         try {
+            scenario.moveToState(Lifecycle.State.RESUMED)
+            scenario.onActivity { activity ->
+                ViewModelProvider(activity)[QuestViewModel::class.java].busy.observe(activity) { idle.busy = it }
+                activity.openRoot(MemberFormFragment.newInstance(Long.MAX_VALUE))
+            }
             onView(withText("This team member is no longer available. Return to the team list.")).check(matches(isDisplayed()))
         } finally {
             IdlingRegistry.getInstance().unregister(idle)
