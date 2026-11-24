@@ -1,5 +1,7 @@
 package com.comp3074.foodquest.data
 
+import com.comp3074.foodquest.domain.MemberValidation
+
 class QuestRepository(private val database: FoodQuestDatabase) {
     private val dao = database.questDao()
 
@@ -27,9 +29,8 @@ class QuestRepository(private val database: FoodQuestDatabase) {
     fun members(): List<TeamMember> = dao.members()
 
     fun saveMember(member: TeamMember) {
-        require(member.name.isNotBlank())
-        val clean = member.copy(name = member.name.trim(), studentId = member.studentId.trim(),
-            email = member.email.trim(), phone = member.phone.trim())
+        val clean = MemberValidation.clean(member)
+        require(MemberValidation.errors(clean).valid) { "Check the member name, email and phone." }
         if (clean.id == 0L) dao.insertMember(clean)
         else check(dao.updateMember(clean) == 1)
     }
