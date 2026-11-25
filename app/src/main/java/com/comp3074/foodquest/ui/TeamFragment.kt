@@ -22,6 +22,9 @@ class TeamFragment : ScreenFragment() {
                         action(row, "Text message") { ExternalActions.sms(requireContext(), member.phone) }
                         action(row, "Call") { ExternalActions.phone(requireContext(), member.phone) }
                     }
+                    if (member.email.isBlank() && member.phone.isBlank()) {
+                        label(row, "Add an email or phone number using Edit member to enable contact actions.")
+                    }
                     action(row, "Edit member") { host.open(MemberFormFragment.newInstance(member.id)) }
                 }
             }
